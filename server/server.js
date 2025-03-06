@@ -9,7 +9,6 @@ const errorHandling = require("./middlewares/errorHandling");
 // Middlewares
 app.use(express.json());
 
-
 app.use("/api/auth", authRoute);
 app.use("/api/form", contactRoute);
 
