@@ -1,0 +1,11 @@
+.container{
+    min-width:120rem ;
+    padding: 4.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul{
+    display: flex;
+    gap: 3.5rem;
+}

@@ -1,18 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { About } from "./pages/About";
-import { Contact } from "./pages/Contact";
-import { Login } from "./pages/Login";
+import { Home } from "./pages/home";
+import { About } from "./pages/about";
+import { Contact } from "./pages/contact";
+import { Login } from "./pages/login";
+import { Signup } from "./pages/registration";
+import { Navbar } from "./components/Navbar";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Signup/>} />
         </Routes>
       </BrowserRouter>
     </>
