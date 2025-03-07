@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const Login = () => {
-  const [login, userLogin] = useState({
+  const [login, setLogin] = useState({
     email: "",
     password: "",
   });
@@ -12,7 +12,7 @@ export const Login = () => {
     let name = e.target.name;
     let value = e.target.value;
 
-    userLogin({
+    setLogin({
       ...login,
       [name]: value,
     });
