@@ -1,0 +1,42 @@
+.section-registration {
+    & .contact-content {
+      padding: 0;
+  
+      & h1 {
+        margin-bottom: 3.2rem;
+      }
+    }
+    & .container {
+      padding-top: 3.2rem;
+    }
+    & .contact-img {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      & img {
+        width: 40%;
+        height: 100%;
+      }
+    }
+  
+    & .reg-form{
+        margin-right: 30px;
+
+      & form {
+        display: flex;
+        flex-direction: column;
+        /* gap: 3.2rem; */
+      }
+      & label {
+        display: block;
+        margin-bottom: 0px;
+        text-transform: capitalize;
+      }
+  
+      & input,
+      textarea {
+        width: 80%;
+        padding: 0.4rem 0.6rem;
+      }
+    }
+  }

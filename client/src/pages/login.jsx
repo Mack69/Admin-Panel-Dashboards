@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {useAuth} from "../store/auth";
 
 export const Login = () => {
   const [login, setLogin] = useState({
     email: "",
     password: "",
   });
+
+  const { storeTokenInLS} = useAuth();
+  const navigate = useNavigate();
 
   //Handling Input values
   const handleInput = (e) => {
@@ -19,11 +24,30 @@ export const Login = () => {
   };
 
   //Handling Submission of values
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(login);
-  };
+    try {
+      const response = await fetch("http://localhost:8000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(login),
+      });
 
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log("after login: ", responseData);
+        storeTokenInLS(responseData.token);
+        setLogin({email: "", password: "" });
+        navigate("/");
+      }else {
+        alert("Invalid Credentials");
+      }
+    }catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <section>
